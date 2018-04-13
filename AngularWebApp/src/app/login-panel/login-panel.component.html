@@ -1,0 +1,14 @@
+<div class="full">
+<h1>Login panel</h1>
+<br>
+<h2>User name</h2>
+<input [(ngModel)]="UserName">
+<h2>Password</h2>
+<input type="password" [(ngModel)]="UserPassword">
+<br>
+<button (click)="check()">Log in</button>
+<ng-container *ngIf="truly">
+  <p>Podano zle dane!</p>
+</ng-container>
+</div>
+
