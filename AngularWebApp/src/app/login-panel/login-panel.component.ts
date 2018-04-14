@@ -22,12 +22,11 @@ export class LoginPanelComponent implements OnInit {
   }
 
   check() {
-    if (this.UserName !== this.NameDef) {
-      this.truly = true;
-      console.log(true);
-    } else {
+    if (this.UserName === this.NameDef && this.UserPassword === this.PassDef) {
       this.LoginInfo.emit('Logged');
+    } else {
+      this.truly = true;
     }
-  }
 
+  }
 }
