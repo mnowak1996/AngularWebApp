@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPanelComponent implements OnInit {
 
+  isUser = false;
+  isGroup = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+  setGroup() {
+    this.isGroup = !this.isGroup;
+    this.isUser = false;
+  }
+  setUser() {
+    this.isUser = !this.isUser;
+    this.isGroup = false;
   }
 
 }
