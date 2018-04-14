@@ -1,10 +1,47 @@
-<div class="container">
-  <div class="row">
-
-        <button>Show list</button>
-        <button>Add user</button>
-        <button>Edit user</button>
-        <button>Delete user</button>
-
+<div class="jumbotron">
+    <div class="text-center">
+    <h1>Users</h1>
+    </div>
   </div>
-</div>
+  <div class="container-fluid">
+    <div class="row" class="text-center">
+      <button type="button" class="btn btn-primary btn-lg">Show List</button>
+      <button type="button" class="btn btn-primary btn-lg" (click)="AddUser()">Add new user</button>
+    </div>
+  </div>
+  <ng-container *ngIf="AddUserForm">
+    <div class="col-sm-3"></div>
+      <form class="col-sm-6">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="name" class="form-control" [(ngModel)]="Name" >
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" [(ngModel)]="Password">
+        </div>
+        <div class="form-group">
+          <label for="FirstName">First Name:</label>
+          <input class="form-control" [(ngModel)]="FirstName">
+        </div>
+        <div class="form-group">
+          <label for="LastName">Last Name:</label>
+          <input class="form-control" [(ngModel)]="LastName">
+        </div>
+        <div class="form-group">
+            <label for="DateOfBirth">Date Of Birth:</label>
+            <input type="date" class="form-control" [(ngModel)]="DateOfBirth">
+          </div>
+          <div class="form-group">
+              <label for="DateOfBirth">Choose a group</label>
+
+          <!-- <div class="list-group" *ngFor="let g of Groups">
+              <a href="#" class="list-group-item list-group-item-action">{{g}}</a>
+            </div> -->
+            </div>
+        <button type="submit" class="btn btn-primary" (click)="AddNewUser()">Submit</button>
+      </form>
+  </ng-container>
+  <ng-container *ngFor="let f of Users">
+    {{f}}
+  </ng-container>

@@ -7,6 +7,7 @@ import { LoginPanelComponent } from './login-panel/login-panel.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { UsersComponent } from './users/users.component';
 import { GroupsComponent } from './groups/groups.component';
+import { MainPanelComponent } from './main-panel/main-panel.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { GroupsComponent } from './groups/groups.component';
     LoginPanelComponent,
     UserPanelComponent,
     UsersComponent,
-    GroupsComponent
+    GroupsComponent,
+    MainPanelComponent
   ],
   imports: [
     BrowserModule,

@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPanelComponent implements OnInit {
 
+  Groups = Array<string>();
+  Users = Array<User>();
   isUser = false;
   isGroup = false;
+  isPanel = true;
+
+
 
   constructor() { }
 
@@ -17,10 +22,27 @@ export class UserPanelComponent implements OnInit {
   setGroup() {
     this.isGroup = !this.isGroup;
     this.isUser = false;
+    this.isPanel = false;
   }
-  setUser() {
-    this.isUser = !this.isUser;
-    this.isGroup = false;
+  setUser(event?: string) {
+    if (this.isUser !== true) {
+      this.isUser = !this.isUser;
+      this.isGroup = false;
+      this.isPanel = false;
+      if (event === 'go') {
+        this.isPanel = false;
+      }
+    }
   }
 
+
+}
+
+interface User {
+  Name: string;
+  Password: string;
+  FirstName: string;
+  LastName: string;
+  DateOfBirth: Date;
+  GroupsUser: Array<string>;
 }
