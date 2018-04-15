@@ -8,43 +8,63 @@ import { Component, OnInit } from '@angular/core';
 export class UsersComponent implements OnInit {
 
   Groups = Array<string>();
-  Users = Array<User>();
+  UsersList = Array<User>();
   Name: string;
   Password: string;
   FirstName: string;
   LastName: string;
   DateOfBirth: Date;
   GroupsUser: Array<string>;
-  User1 = new User;
+  ID: number;
+
+  list26;
+
+  //  user1 =new User(michal,haslo,michal1);
 
   AddUserForm = false;
+  ShowList = false;
   constructor() { }
 
   ngOnInit() {
   }
+  ShowListOfUsers() {
+    if (this.ShowList !== true) {
+      this.ShowList = true;
+      this.AddUserForm = false;
+    }
+  }
   AddUser() {
-    this.AddUserForm = true;
-  }
-  AddNewUser() {
-    this.Users.push(this.User1);
-    console.log(this.User1.Name);
+    if (this.AddUserForm !== true) {
+      this.AddUserForm = true;
+      this.ShowList = false;
+    }
 
   }
+  AddNewUser(newUserName) {
+    this.ID = this.UsersList.length;
+    newUserName = new User(newUserName, this.Password, this.FirstName, this.LastName, this.DateOfBirth, this.ID);
+    this.UsersList.push(newUserName);
+    this.Name = '';
+    this.Password = '';
+    this.FirstName = '';
+    this.LastName = '';
+  }
+  RemoveUser(id) {
+    this.list26 = this.UsersList.splice(id, 1);
+    // console.log(this.list26);
+  }
 
-}
-interface User {
-  Name: string;
-  Password: string;
-  FirstName: string;
-  LastName: string;
-  DateOfBirth: Date;
-  GroupsUser: Array<string>;
 }
 class User {
-  Name: string;
-  Password: string;
-  FirstName: string;
-  LastName: string;
-  DateOfBirth: Date;
-  GroupsUser: Array<string>;
+  constructor(public name: string, public password: string, public firstName: string, public lastName, public dateOfBirth, public ID) {
+    // password='haslo';
+    // firstName='firmane';
+
+  }
+  // Name: string;
+  // Password: string;
+  // FirstName: string;
+  // LastName: string;
+  // DateOfBirth: Date;
+  // GroupsUser: Array<string>;
 }

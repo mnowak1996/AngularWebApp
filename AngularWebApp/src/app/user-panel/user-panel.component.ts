@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPanelComponent implements OnInit {
 
-  Groups = Array<string>();
-  Users = Array<User>();
+  // Groups = Array<string>();
+  // Users = Array<User>();
   isUser = false;
   isGroup = false;
   isPanel = true;
@@ -38,11 +38,11 @@ export class UserPanelComponent implements OnInit {
 
 }
 
-interface User {
-  Name: string;
-  Password: string;
-  FirstName: string;
-  LastName: string;
-  DateOfBirth: Date;
-  GroupsUser: Array<string>;
-}
+// interface User {
+//   Name: string;
+//   Password: string;
+//   FirstName: string;
+//   LastName: string;
+//   DateOfBirth: Date;
+//   GroupsUser: Array<string>;
+// }

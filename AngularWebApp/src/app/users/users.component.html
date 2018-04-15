@@ -5,43 +5,96 @@
   </div>
   <div class="container-fluid">
     <div class="row" class="text-center">
-      <button type="button" class="btn btn-primary btn-lg">Show List</button>
+      <button type="button" class="btn btn-primary btn-lg"(click)="ShowListOfUsers()">Show List</button>
       <button type="button" class="btn btn-primary btn-lg" (click)="AddUser()">Add new user</button>
     </div>
   </div>
   <ng-container *ngIf="AddUserForm">
-    <div class="col-sm-3"></div>
-      <form class="col-sm-6">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="name" class="form-control" [(ngModel)]="Name" >
-        </div>
-        <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" [(ngModel)]="Password">
-        </div>
-        <div class="form-group">
-          <label for="FirstName">First Name:</label>
-          <input class="form-control" [(ngModel)]="FirstName">
-        </div>
-        <div class="form-group">
-          <label for="LastName">Last Name:</label>
-          <input class="form-control" [(ngModel)]="LastName">
-        </div>
-        <div class="form-group">
-            <label for="DateOfBirth">Date Of Birth:</label>
-            <input type="date" class="form-control" [(ngModel)]="DateOfBirth">
-          </div>
-          <div class="form-group">
-              <label for="DateOfBirth">Choose a group</label>
+    <div class="text-center">
+      <br> Name<br>
+      <input type="text" [(ngModel)]="Name">
+      <br> Password<br>
+      <input type="text" [(ngModel)]="Password">
+      <br> FirstName<br>
+      <input type="text" [(ngModel)]="FirstName">
+      <br>LastName<br>
+      <input type="text" [(ngModel)]="LastName">
+      <br> Date of Birth<br>
+      <input type="date" [(ngModel)]="DateOfBirth">
+      <!-- <br> Groups
+      <input type="button" [(ngModel)]="DateOfBirth"> -->
+      <br><br>
+      <button type="button" class="btn btn-primary btn-lg" (click)="AddNewUser(Name,Password,FirstName)">Add user</button>
+    </div>
+    {{Password}}
+  </ng-container>
 
-          <!-- <div class="list-group" *ngFor="let g of Groups">
-              <a href="#" class="list-group-item list-group-item-action">{{g}}</a>
-            </div> -->
+  <ng-container *ngIf="ShowList">
+    <br>
+    <div class="text-center">
+    <div class="row">
+        <div class="col-sm-1">
+          ID
+        </div>
+    <div class="col-sm-1">
+     Name
+    </div>
+    <div class="col-sm-1">
+      <p>Password</p>
+    </div>
+    <div class="col-sm-1">
+      <p>FirstName</p>
+    </div>
+    <div class="col-sm-1">
+      <p>LastName</p>
+    </div>
+    <div class="col-sm-1">
+      <p>Date of birth</p>
+    </div>
+    <div class="col-sm-1">
+      <p>Groups</p>
+    </div>
+    <div class="col-sm-1">
+        <p>Edit User</p>
+      </div>
+
+    <div class="col-sm-1">
+        <p>Remove User</p>
+      </div>
+</div>
+  </div>
+
+      <ng-container *ngFor="let u of UsersList;let i = index">
+        <div class="text-center">
+          <div class="row">
+              <div class="col-sm-1">
+                  <p>{{u.ID}}</p>
+                </div>
+            <div class="col-sm-1">
+              <p>{{u.name}}</p>
             </div>
-        <button type="submit" class="btn btn-primary" (click)="AddNewUser()">Submit</button>
-      </form>
-  </ng-container>
-  <ng-container *ngFor="let f of Users">
-    {{f}}
-  </ng-container>
+            <div class="col-sm-1">
+              <p>{{u.password}}</p>
+            </div>
+            <div class="col-sm-1">
+              <p>{{u.firstName}}</p>
+            </div>
+            <div class="col-sm-1">
+              <p>{{u.lastName}}</p>
+            </div>
+            <div class="col-sm-1">
+              <p>{{u.dateOfBirth}}</p>
+            </div>
+            <div class="col-sm-1">
+              <p>Groups</p>
+            </div>
+            <div class="col-sm-1">
+              <button type="button" class="btn btn-success">Edit User</button>
+            </div>
+            <div class="col-sm-1">
+              <button type="button" class="btn btn-danger" (click)="RemoveUser(i)">Remove User</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
