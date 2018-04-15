@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit {
   DateOfBirth: Date;
   GroupsUser: Array<string>;
   ID: number;
+  ChooseAGr = false;
 
   list26;
 
@@ -52,6 +53,9 @@ export class UsersComponent implements OnInit {
   RemoveUser(id) {
     this.list26 = this.UsersList.splice(id, 1);
     // console.log(this.list26);
+  }
+  ChooseAGroup() {
+    this.ChooseAGr = true;
   }
 
 }

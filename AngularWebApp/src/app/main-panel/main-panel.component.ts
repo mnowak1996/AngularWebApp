@@ -9,6 +9,8 @@ export class MainPanelComponent implements OnInit {
 
   @Output()
   UsersInfo = new EventEmitter<string>();
+  @Output()
+  GroupsInfo = new EventEmitter<string>();
 
   constructor() { }
 
@@ -16,6 +18,10 @@ export class MainPanelComponent implements OnInit {
   }
   setUsers() {
     this.UsersInfo.emit('go');
+  }
+
+  setGroups(){
+    this.GroupsInfo.emit('go');
   }
 
 }

@@ -11,12 +11,12 @@
     </div>
   </nav>
   <ng-container *ngIf="isGroup">
-    <app-groups></app-groups>
+    <app-groups ></app-groups>
   </ng-container>
   <ng-container *ngIf="isUser">
       <app-users></app-users>
     </ng-container>
     <ng-container *ngIf="isPanel">
-      <app-main-panel (UsersInfo)="setUser($event)"></app-main-panel>
+      <app-main-panel (UsersInfo)="setUser($event)" (GroupsInfo)="setGroup($event)"></app-main-panel>
     </ng-container>
 

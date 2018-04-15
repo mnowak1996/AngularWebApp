@@ -19,10 +19,15 @@ export class UserPanelComponent implements OnInit {
 
   ngOnInit() {
   }
-  setGroup() {
-    this.isGroup = !this.isGroup;
-    this.isUser = false;
-    this.isPanel = false;
+  setGroup(event?: string) {
+    if (this.isGroup !== true) {
+      this.isGroup = !this.isGroup;
+      this.isUser = false;
+      this.isPanel = false;
+      if (event === 'go') {
+        this.isPanel = false;
+      }
+    }
   }
   setUser(event?: string) {
     if (this.isUser !== true) {
