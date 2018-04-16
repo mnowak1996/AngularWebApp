@@ -33,12 +33,15 @@ export class UsersComponent implements OnInit {
     if (this.ShowList !== true) {
       this.ShowList = true;
       this.AddUserForm = false;
+      this.editUser=false;
     }
   }
   AddUser() {
     if (this.AddUserForm !== true) {
       this.AddUserForm = true;
       this.ShowList = false;
+      this.editUser = false;
+
     }
 
   }
@@ -62,6 +65,7 @@ export class UsersComponent implements OnInit {
     if (this.editUser !== true) {
       this.editUser = true;
       this.ShowList = false;
+      this.AddUserForm = false;
       this.Name = user.name;
       this.Password = user.password;
       this.FirstName = user.firstName;
@@ -69,8 +73,9 @@ export class UsersComponent implements OnInit {
       this.DateOfBirth = user.dateOfBirth;
     }
   }
-  UpdateUser(Name, Password, FirstName, id) {
+  UpdateUser(Name, id) {
     this.list26 = this.UsersList.splice(id, 1);
+    this.AddNewUser(name);
 
   }
 
