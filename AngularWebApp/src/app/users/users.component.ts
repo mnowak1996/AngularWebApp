@@ -33,7 +33,7 @@ export class UsersComponent implements OnInit {
     if (this.ShowList !== true) {
       this.ShowList = true;
       this.AddUserForm = false;
-      this.editUser=false;
+      this.editUser = false;
     }
   }
   AddUser() {
