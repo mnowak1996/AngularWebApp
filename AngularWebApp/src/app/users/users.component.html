@@ -107,7 +107,7 @@
           <p>Groups</p>
         </div>
         <div class="col-sm-1">
-          <button type="button" class="btn btn-success">Edit User</button>
+          <button type="button" class="btn btn-success" (click)="EditUser(u)">Edit User</button>
         </div>
         <div class="col-sm-1">
           <button type="button" class="btn btn-danger" (click)="RemoveUser(i)">Remove User</button>
@@ -115,4 +115,44 @@
       </div>
     </div>
   </ng-container>
+</ng-container>
+<ng-container *ngIf="editUser">
+  <div class="text-center">
+    <br>
+    <h3>Name</h3>
+    <input type="text" [(ngModel)]="Name" >
+    <br>
+    <h3>Password</h3>
+    <input type="text" [(ngModel)]="Password">
+    <br>
+    <h3>FirstName</h3>
+    <input type="text" [(ngModel)]="FirstName">
+    <br>
+    <h3>LastName</h3>
+    <input type="text" [(ngModel)]="LastName">
+    <br>
+    <h3>Date of Birth</h3>
+    <input type="date" [(ngModel)]="DateOfBirth">
+    <br>
+    <br>
+    <!--  -->
+    <button type="button" class="btn btn-success btn-lg" (click)="ChooseAGroup()">Choose a group</button>
+    <ng-container *ngIf="ChooseAGr">
+      <div class="text-center">
+        <div class="row">
+          <div class="col-sm-1">
+            <button type="button" class="btn btn-success">Group 1</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!--  -->
+    <br>
+    <br>
+    <!-- <button type="button" class="btn btn-primary btn-lg" (click)="UpdateUser()">
+      Save
+    </button> -->
+  </div>
+
 </ng-container>

@@ -17,6 +17,7 @@ export class UsersComponent implements OnInit {
   GroupsUser: Array<string>;
   ID: number;
   ChooseAGr = false;
+  editUser = false;
 
   list26;
 
@@ -56,6 +57,21 @@ export class UsersComponent implements OnInit {
   }
   ChooseAGroup() {
     this.ChooseAGr = true;
+  }
+  EditUser(user) {
+    if (this.editUser !== true) {
+      this.editUser = true;
+      this.ShowList = false;
+      this.Name = user.name;
+      this.Password = user.password;
+      this.FirstName = user.firstName;
+      this.LastName = user.lastName;
+      this.DateOfBirth = user.dateOfBirth;
+    }
+  }
+  UpdateUser(Name, Password, FirstName, id) {
+    this.list26 = this.UsersList.splice(id, 1);
+
   }
 
 }
